@@ -103,12 +103,12 @@ public class Login extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 226, 35));
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 340, 35));
 
         txtPass.setBackground(new java.awt.Color(204, 0, 0));
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
-        jPanel2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 226, 35));
+        jPanel2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 340, 35));
 
         btnIniciar.setBackground(new java.awt.Color(51, 51, 51));
         btnIniciar.setFont(new java.awt.Font("Yu Gothic UI", 3, 14)); // NOI18N
@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 360, 93, 35));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 93, 35));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -173,25 +173,23 @@ public class Login extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(0, 153, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(0, 36, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 110));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 110));
 
         barra.setBackground(new java.awt.Color(51, 51, 51));
         barra.setForeground(new java.awt.Color(0, 110, 255));
-        jPanel2.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 280, 30));
+        jPanel2.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 400, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 420));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
