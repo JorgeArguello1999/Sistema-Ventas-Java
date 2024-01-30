@@ -1857,6 +1857,11 @@ public final class Sistema extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(TableUsuarios);
 
         jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 380));
@@ -2452,6 +2457,23 @@ public final class Sistema extends javax.swing.JFrame {
                 System.exit(0);
             }
     }//GEN-LAST:event_salirActionPerformed
+
+    private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
+        // TODO add your handling code here:
+        /*
+        btnEditarpro.setEnabled(true);
+        btnEliminarPro.setEnabled(true);
+        btnGuardarpro.setEnabled(true);
+        int fila = TableProducto.rowAtPoint(evt.getPoint());
+        txtIdproducto.setText(TableProducto.getValueAt(fila, 0).toString());
+        pro = proDao.BuscarId(Integer.parseInt(txtIdproducto.getText()));
+        txtCodigoPro.setText(pro.getCodigo());
+        txtDesPro.setText(pro.getNombre());
+        txtCantPro.setText("" + pro.getStock());
+        txtPrecioPro.setText("" + pro.getPrecio());
+        cbxProveedorPro.setSelectedItem(new Combo(pro.getProveedor(), pro.getProveedorPro()));
+        */
+    }//GEN-LAST:event_TableUsuariosMouseClicked
 
     /**
      * @param args the command line arguments
