@@ -1,4 +1,3 @@
-
 package Reportes;
 
 import Modelo.Conexion;
@@ -12,23 +11,26 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 public class Grafico {
-    public static void Graficar(String fecha){
+    public static void Graficar(String fecha) {
         Connection con;
         Conexion cn = new Conexion();
         PreparedStatement ps;
         ResultSet rs;
         try {
-            String sql = "SELECT total FROM ventas WHERE fecha = ?";
+            String sql = "SELECT nombreCategoria, total FROM ventas WHERE fecha = ?";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, fecha);
             rs = ps.executeQuery();
-            DefaultPieDataset dateset = new DefaultPieDataset();
-            while(rs.next()){
-                dateset.setValue(rs.getString("total"), rs.getDouble("total"));
+            
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            
+            while (rs.next()) {
+                dataset.setValue(rs.getString("nombreCategoria"), rs.getDouble("total"));
             }
-            JFreeChart jf = ChartFactory.createPieChart("Reporte de Venta", dateset);
-            ChartFrame f = new ChartFrame("Total de Ventas por dia", jf);
+            
+            JFreeChart jf = ChartFactory.createPieChart("Reporte de Venta", dataset);
+            ChartFrame f = new ChartFrame("Total de Ventas por día", jf);
             f.setSize(1000, 500);
             f.setLocationRelativeTo(null);
             f.setVisible(true);
