@@ -1,3 +1,6 @@
-/dist/
+# Ignorar archivos generados por la compilación
 build/
+
+# Ignorar cambios en el directorio src
 src/
+
