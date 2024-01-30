@@ -695,6 +695,12 @@ public final class Sistema extends javax.swing.JFrame {
         LabelTotal.setForeground(new java.awt.Color(204, 204, 204));
         LabelTotal.setText("-----");
         jPanel2.add(LabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 381, -1, -1));
+
+        txtIdCV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdCVActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtIdCV, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 375, -1, -1));
         jPanel2.add(txtIdPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
@@ -1864,7 +1870,7 @@ public final class Sistema extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(TableUsuarios);
 
-        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 380));
+        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 320));
 
         jTabbedPane1.addTab("7", jPanel12);
 
@@ -2460,20 +2466,15 @@ public final class Sistema extends javax.swing.JFrame {
 
     private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
         // TODO add your handling code here:
-        /*
-        btnEditarpro.setEnabled(true);
-        btnEliminarPro.setEnabled(true);
-        btnGuardarpro.setEnabled(true);
-        int fila = TableProducto.rowAtPoint(evt.getPoint());
-        txtIdproducto.setText(TableProducto.getValueAt(fila, 0).toString());
-        pro = proDao.BuscarId(Integer.parseInt(txtIdproducto.getText()));
-        txtCodigoPro.setText(pro.getCodigo());
-        txtDesPro.setText(pro.getNombre());
-        txtCantPro.setText("" + pro.getStock());
-        txtPrecioPro.setText("" + pro.getPrecio());
-        cbxProveedorPro.setSelectedItem(new Combo(pro.getProveedor(), pro.getProveedorPro()));
-        */
+        int fila = TableUsuarios.rowAtPoint(evt.getPoint());
+        txtIdproducto.setText(TableUsuarios.getValueAt(fila, 0).toString());
+        int userID = Integer.parseInt(txtIdproducto.getText());
+        System.out.println(userID);
     }//GEN-LAST:event_TableUsuariosMouseClicked
+
+    private void txtIdCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdCVActionPerformed
 
     /**
      * @param args the command line arguments
