@@ -1647,14 +1647,20 @@ public final class Sistema extends javax.swing.JFrame {
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel13.setBackground(new java.awt.Color(204, 0, 51));
+        jPanel13.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel13.setToolTipText("");
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel34.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(204, 204, 204));
         jLabel34.setText("Correo Electrónico");
+        jLabel34.setToolTipText("");
         jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 102, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(204, 204, 204));
         jLabel35.setText("Password");
+        jLabel35.setToolTipText("");
         jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 163, -1, -1));
 
         txtCorreo.setBackground(new java.awt.Color(204, 204, 204));
@@ -1683,7 +1689,9 @@ public final class Sistema extends javax.swing.JFrame {
         jPanel13.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 341, 226, 34));
 
         jLabel36.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(204, 204, 204));
         jLabel36.setText("Nombre:");
+        jLabel36.setToolTipText("");
         jPanel13.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 219, -1, -1));
 
         txtNombre.setBackground(new java.awt.Color(204, 204, 204));
@@ -1691,7 +1699,9 @@ public final class Sistema extends javax.swing.JFrame {
         jPanel13.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 243, 226, 30));
 
         jLabel37.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(204, 204, 204));
         jLabel37.setText("Rol:");
+        jLabel37.setToolTipText("");
         jPanel13.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Asistente" }));
