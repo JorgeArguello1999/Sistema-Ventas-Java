@@ -12,6 +12,10 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class Grafico {
     public static void Graficar(String fecha) {
+        
+        /*
+        Este Módulo esta en trabajo, no funcional.
+        */
         Connection con;
         Conexion cn = new Conexion();
         PreparedStatement ps;
@@ -25,9 +29,6 @@ public class Grafico {
             
             DefaultPieDataset dataset = new DefaultPieDataset();
             
-            while (rs.next()) {
-                dataset.setValue(rs.getString("nombreCategoria"), rs.getDouble("total"));
-            }
             
             JFreeChart jf = ChartFactory.createPieChart("Reporte de Venta", dataset);
             ChartFrame f = new ChartFrame("Total de Ventas por día", jf);

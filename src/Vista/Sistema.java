@@ -31,6 +31,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 public final class Sistema extends javax.swing.JFrame {
+    // Almacena el ID del usuario Seleccionado
+    private int idUsuarioSeleccionado;
 
     Date fechaVenta = new Date();
     String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(fechaVenta);
@@ -240,7 +242,6 @@ public final class Sistema extends javax.swing.JFrame {
         LabelTotal = new javax.swing.JLabel();
         txtIdCV = new javax.swing.JTextField();
         txtIdPro = new javax.swing.JTextField();
-        btnGraficar = new javax.swing.JButton();
         Midate = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
@@ -377,6 +378,7 @@ public final class Sistema extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TableUsuarios = new javax.swing.JTable();
+        btnEliminarUsuario = new javax.swing.JButton();
         jPanel47 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
@@ -695,16 +697,14 @@ public final class Sistema extends javax.swing.JFrame {
         LabelTotal.setForeground(new java.awt.Color(204, 204, 204));
         LabelTotal.setText("-----");
         jPanel2.add(LabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 381, -1, -1));
-        jPanel2.add(txtIdCV, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 375, -1, -1));
-        jPanel2.add(txtIdPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
-        btnGraficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ic_games_128_28336 (1).png"))); // NOI18N
-        btnGraficar.addActionListener(new java.awt.event.ActionListener() {
+        txtIdCV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGraficarActionPerformed(evt);
+                txtIdCVActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGraficar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 40, 50));
+        jPanel2.add(txtIdCV, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 375, -1, -1));
+        jPanel2.add(txtIdPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
         Midate.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.add(Midate, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 210, 30));
@@ -1857,9 +1857,23 @@ public final class Sistema extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TableUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(TableUsuarios);
 
-        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 380));
+        jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 320));
+
+        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel12.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
 
         jTabbedPane1.addTab("7", jPanel12);
 
@@ -2237,14 +2251,6 @@ public final class Sistema extends javax.swing.JFrame {
         txtDirecionCliente.setText(TableCliente.getValueAt(fila, 4).toString());
     }//GEN-LAST:event_TableClienteMouseClicked
 
-    private void btnGraficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficarActionPerformed
-        // TODO add your handling code here:
-
-        String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(Midate.getDate());
-        Grafico.Graficar(fechaReporte);
-
-    }//GEN-LAST:event_btnGraficarActionPerformed
-
     private void btnGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentaActionPerformed
         // TODO add your handling code here:
         if (TableVenta.getRowCount() > 0) {
@@ -2453,6 +2459,33 @@ public final class Sistema extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_salirActionPerformed
 
+    private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
+        int fila = TableUsuarios.rowAtPoint(evt.getPoint());
+        txtIdproducto.setText(TableUsuarios.getValueAt(fila, 0).toString());
+        idUsuarioSeleccionado = Integer.parseInt(txtIdproducto.getText());
+        System.out.println("Usuario seleccionado: " + idUsuarioSeleccionado);
+    }//GEN-LAST:event_TableUsuariosMouseClicked
+
+    private void txtIdCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdCVActionPerformed
+
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Seguro deseas Eliminar a este Usuario?");
+        int idUsuario = idUsuarioSeleccionado; // Utiliza el ID del usuario seleccionado
+        
+        if (pregunta == 0) {
+            boolean salida = login.deleteUser(idUsuario); 
+            if (salida && idUsuario != 0) {
+                JOptionPane.showMessageDialog(null, "Eliminado con éxito");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocurrió un problema al Eliminar");
+            }      
+            LimpiarTable();
+            ListarUsuarios();
+        }
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2507,9 +2540,9 @@ public final class Sistema extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarPro;
     private javax.swing.JButton btnEliminarProveedor;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JButton btnEliminarventa;
     private javax.swing.JButton btnGenerarVenta;
-    private javax.swing.JButton btnGraficar;
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnGuardarpro;
     private javax.swing.JButton btnIniciar;

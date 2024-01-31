@@ -18,8 +18,6 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        txtCorreo.setText("admin@gmail.com");
-        txtPass.setText("admin");
         barra.setVisible(false);
     }
     public class BarraProgreso implements ActionListener {
@@ -95,9 +93,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Password");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
-        txtCorreo.setBackground(new java.awt.Color(204, 0, 0));
-        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
-        txtCorreo.setBorder(null);
+        txtCorreo.setBackground(new java.awt.Color(204, 204, 204));
+        txtCorreo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -105,9 +102,8 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 340, 35));
 
-        txtPass.setBackground(new java.awt.Color(204, 0, 0));
-        txtPass.setForeground(new java.awt.Color(255, 255, 255));
-        txtPass.setBorder(null);
+        txtPass.setBackground(new java.awt.Color(204, 204, 204));
+        txtPass.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 340, 35));
 
         btnIniciar.setBackground(new java.awt.Color(51, 51, 51));
@@ -187,7 +183,7 @@ public class Login extends javax.swing.JFrame {
 
         barra.setBackground(new java.awt.Color(51, 51, 51));
         barra.setForeground(new java.awt.Color(0, 110, 255));
-        jPanel2.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 400, 30));
+        jPanel2.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 400, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 420));
 

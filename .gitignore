@@ -4,3 +4,4 @@ build/
 # Ignorar cambios en el directorio src
 src/
 
+/dist/

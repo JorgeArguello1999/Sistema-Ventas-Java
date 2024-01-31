@@ -99,4 +99,17 @@ public class LoginDAO {
             throw new RuntimeException("Error al encriptar la contraseña.", e);
         }
     }
+    
+    public boolean deleteUser(int user){
+        String sql = "DELETE FROM usuarios WHERE id = " + user ;
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+            return false;
+        }
+    }
 }
