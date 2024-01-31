@@ -31,6 +31,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 public final class Sistema extends javax.swing.JFrame {
+    // Almacena el ID del usuario Seleccionado
+    private int idUsuarioSeleccionado;
 
     Date fechaVenta = new Date();
     String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(fechaVenta);
@@ -2458,11 +2460,10 @@ public final class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void TableUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableUsuariosMouseClicked
-        // TODO add your handling code here:
         int fila = TableUsuarios.rowAtPoint(evt.getPoint());
         txtIdproducto.setText(TableUsuarios.getValueAt(fila, 0).toString());
-        int userID = Integer.parseInt(txtIdproducto.getText());
-        System.out.println(userID);
+        idUsuarioSeleccionado = Integer.parseInt(txtIdproducto.getText());
+        System.out.println("Usuario seleccionado: " + idUsuarioSeleccionado);
     }//GEN-LAST:event_TableUsuariosMouseClicked
 
     private void txtIdCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCVActionPerformed
@@ -2470,16 +2471,16 @@ public final class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdCVActionPerformed
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
-        // TODO add your handling code here:
-
-        int pregunta = JOptionPane.showConfirmDialog(null, "¿Seguro deseas Salir?");
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Seguro deseas Eliminar a este Usuario?");
+        int idUsuario = idUsuarioSeleccionado; // Utiliza el ID del usuario seleccionado
+        
         if (pregunta == 0) {
-            boolean salida = login.deleteUser(11);
-            if(salida){
-                JOptionPane.showMessageDialog(null, "Eliminado on exito");
-            }else{
-                JOptionPane.showMessageDialog(null, "Ocurrio un problema al Eliminar");
-            }
+            boolean salida = login.deleteUser(idUsuario); 
+            if (salida && idUsuario != 0) {
+                JOptionPane.showMessageDialog(null, "Eliminado con éxito");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocurrió un problema al Eliminar");
+            }      
             LimpiarTable();
             ListarUsuarios();
         }
