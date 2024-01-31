@@ -376,6 +376,7 @@ public final class Sistema extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TableUsuarios = new javax.swing.JTable();
+        btnEliminarUsuario = new javax.swing.JButton();
         jPanel47 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
@@ -1863,6 +1864,15 @@ public final class Sistema extends javax.swing.JFrame {
 
         jPanel12.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 540, 320));
 
+        btnEliminarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel12.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
+
         jTabbedPane1.addTab("7", jPanel12);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 95, 860, 460));
@@ -2459,6 +2469,22 @@ public final class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdCVActionPerformed
 
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+
+        int pregunta = JOptionPane.showConfirmDialog(null, "¿Seguro deseas Salir?");
+        if (pregunta == 0) {
+            boolean salida = login.deleteUser(11);
+            if(salida){
+                JOptionPane.showMessageDialog(null, "Eliminado on exito");
+            }else{
+                JOptionPane.showMessageDialog(null, "Ocurrio un problema al Eliminar");
+            }
+            LimpiarTable();
+            ListarUsuarios();
+        }
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2513,6 +2539,7 @@ public final class Sistema extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarPro;
     private javax.swing.JButton btnEliminarProveedor;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JButton btnEliminarventa;
     private javax.swing.JButton btnGenerarVenta;
     private javax.swing.JButton btnGuardarCliente;
